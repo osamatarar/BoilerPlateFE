@@ -20,9 +20,7 @@ import { BaseComponent } from '../../core/basecompoment';
 })
 export class AppLayout extends BaseComponent  
 {
-    protected override loadData(): void {
-        throw new Error('Method not implemented.');
-    }
+  
     overlayMenuOpenSubscription: Subscription;
 
     menuOutsideClickListener: any;
@@ -34,10 +32,8 @@ export class AppLayout extends BaseComponent
     constructor(
         public layoutService: LayoutService,
         public renderer: Renderer2,
-        public router: Router,
-        protected override loaderService: LoaderService
-    ) {
-        super(loaderService);
+       ) {
+        super();
         this.overlayMenuOpenSubscription = this.layoutService.overlayOpen$.subscribe(() => {
             if (!this.menuOutsideClickListener) {
                 this.menuOutsideClickListener = this.renderer.listen('document', 'click', (event) => {

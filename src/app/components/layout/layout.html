@@ -1,6 +1,5 @@
 <div class="layout-wrapper" [ngClass]="containerClass">
-   
-    <div class="loader-overlay" *ngIf="false">
+    <div class="loader-overlay" *ngIf="loaderService.loading$ | async">
         <p-progressSpinner></p-progressSpinner>
     </div>
     <app-topbar></app-topbar>
@@ -13,3 +12,4 @@
     </div>
     <div class="layout-mask animate-fadein"></div>
 </div>
+
