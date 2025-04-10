@@ -7,6 +7,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { RippleModule } from 'primeng/ripple';
 import { AppFloatingConfigurator } from '../../layout/app.floatingconfigurator';
+import { BaseComponent } from '../../../core/basecompoment';
+import { Product } from '../../../pages/service/product.service';
 
 
 @Component({
@@ -15,11 +17,10 @@ import { AppFloatingConfigurator } from '../../layout/app.floatingconfigurator';
     imports: [ButtonModule, CheckboxModule, InputTextModule, PasswordModule, FormsModule, RouterModule, RippleModule, AppFloatingConfigurator],
     templateUrl:'./login.html'
 })
-export class Login 
-{
+export class Login extends BaseComponent<Product>
+{   
     email: string = '';
-
     password: string = '';
-
     checked: boolean = false;
+
 }

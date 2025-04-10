@@ -18,10 +18,9 @@ import { BaseComponent } from '../../core/basecompoment';
     imports: [CommonModule, AppTopbar, AppSidebar, RouterModule, AppFooter, ProgressSpinnerModule],
     templateUrl: `./layout.html`, 
 })
-export class AppLayout extends BaseComponent  
-{
-  
-    overlayMenuOpenSubscription: Subscription;
+export class AppLayout extends BaseComponent<any>  
+{  
+     overlayMenuOpenSubscription: Subscription;
 
     menuOutsideClickListener: any;
 

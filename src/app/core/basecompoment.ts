@@ -1,17 +1,14 @@
 import { Router } from "@angular/router";
 import { LoaderService } from "../service/theme/loader.service";
-import { Component, inject } from '@angular/core';
-import { Observable } from 'rxjs';
+import { inject, Injectable } from '@angular/core';
+import { BaseRepository } from "./repository/base.repository";
 
-@Component({
-  template: ''
-})
-export class BaseComponent 
+@Injectable()
+export abstract class BaseComponent<T> extends BaseRepository<T>
 {
-  protected router = inject(Router);
+
+  public router = inject(Router);
   protected loaderService = inject(LoaderService);
-  
-  
   protected ShowLoader(): void 
   {
     this.loaderService.show();
@@ -21,6 +18,4 @@ export class BaseComponent
   {
     this.loaderService.hide();
   }
-
-
 }
