@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
@@ -7,8 +7,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { RippleModule } from 'primeng/ripple';
 import { AppFloatingConfigurator } from '../../layout/app.floatingconfigurator';
-import { BaseComponent } from '../../../core/basecompoment';
-import { Product } from '../../../pages/service/product.service';
+import { FormBaseComponent } from '../../../core/basecompoment';
+import { LoginForm, LoginFormDTO } from './loginmodel';
 
 
 @Component({
@@ -17,10 +17,20 @@ import { Product } from '../../../pages/service/product.service';
     imports: [ButtonModule, CheckboxModule, InputTextModule, PasswordModule, FormsModule, RouterModule, RippleModule, AppFloatingConfigurator],
     templateUrl:'./login.html'
 })
-export class Login extends BaseComponent<Product>
-{   
+export class Login extends FormBaseComponent<LoginForm, LoginFormDTO> 
+{
+    public override FormModel: LoginForm = new LoginForm();
+    
+  
     email: string = '';
     password: string = '';
     checked: boolean = false;
 
+   
 }
+
+
+
+
+
+
